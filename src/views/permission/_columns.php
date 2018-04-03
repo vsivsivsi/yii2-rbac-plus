@@ -24,6 +24,7 @@ return [
     [
         'class' => 'kartik\grid\ActionColumn',
         'dropdown' => false,
+        'contentOptions' => ['class' => 'nowrap'],
         'vAlign' => 'middle',
         'urlCreator' => function($action, $model, $key, $index) {
             return Url::to([$action, 'name' => $key]);

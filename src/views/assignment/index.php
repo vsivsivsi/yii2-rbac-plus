@@ -43,7 +43,7 @@ echo GridView::widget([
     'panel' => [
         'type' => 'primary',
         'heading' => '<i class="glyphicon glyphicon-list"></i> ' . $this->title,
-        'before' => '<em>' . Yii::t('rbac', '* Resize table columns just like a spreadsheet by dragging the column edges.') . '</em>',
+        'before' => false,
         'after' => false,
     ]
 ]);

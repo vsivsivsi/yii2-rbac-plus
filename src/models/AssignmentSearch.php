@@ -29,6 +29,9 @@ class AssignmentSearch extends \yii\base\Model {
      * @var string $login
      */
     public $login;
+    public $fullName;
+    public $filterRole;
+    public $org;
 
     /**
      * @inheritdoc
@@ -43,7 +46,7 @@ class AssignmentSearch extends \yii\base\Model {
      */
     public function rules() {
         return [
-            [['id', 'login'], 'safe'],
+            [['id', 'login', 'fullName', 'filterRole', 'org'], 'safe'],
         ];
     }
 
@@ -52,8 +55,10 @@ class AssignmentSearch extends \yii\base\Model {
      */
     public function attributeLabels() {
         return [
-            'id' => Yii::t('rbac', 'ID'),
+            'id' => Yii::t('app', 'ID'),
             'login' => $this->rbacModule->userModelLoginFieldLabel,
+            'Full Name' => Yii::t('rbac', 'Full Name'),
+            'org' => 'Організація',
         ];
     }
 
@@ -66,13 +71,24 @@ class AssignmentSearch extends \yii\base\Model {
             'query' => $query,
         ]);
         $params = Yii::$app->request->getQueryParams();
+        $query->orderBy(['org_id' => SORT_ASC]);
 
         if (!($this->load($params) && $this->validate())) {
             return $dataProvider;
         }
-        
-        $query->andFilterWhere([$this->usersModule->userModelIdField => $this->id]);
+
+        $query->andFilterWhere([$this->rbacModule->userModelIdField => $this->id]);
+        $query->andFilterWhere(['org_id' => $this->org]);
         $query->andFilterWhere(['like', $this->rbacModule->userModelLoginField, $this->login]);
+
+        if (!empty($this->fullName)){
+            $query->andWhere("first_name LIKE '%" . $this->fullName . "%' OR second_name LIKE '%" . $this->fullName . "%' OR last_name LIKE '%" . $this->fullName . "%'");
+        }
+
+        if (!empty($this->filterRole)){
+            $idsByRole = Yii::$app->authManager->getUserIdsByRole($this->filterRole);
+            $query->andWhere(['id' => $idsByRole]);
+        }
 
         return $dataProvider;
     }

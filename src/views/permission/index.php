@@ -8,7 +8,7 @@ use johnitvn\ajaxcrud\CrudAsset;
 /* @var $searchModel johnitvn\rbacplus\models\AuthItemSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('rbac','Permisstions Manager');
+$this->title = Yii::t('rbac','Permissions Manager');
 $this->params['breadcrumbs'][] = $this->title;
 
 CrudAsset::register($this);
@@ -52,7 +52,7 @@ CrudAsset::register($this);
             'panel' => [
                 'type' => 'primary', 
                  'heading' => '<i class="glyphicon glyphicon-list"></i> '. $this->title,
-                'before'=>'<em>'.Yii::t('rbac','* Resize table columns just like a spreadsheet by dragging the column edges.').'</em>',
+         
                 'after'=>false,
             ]
         ])?>
