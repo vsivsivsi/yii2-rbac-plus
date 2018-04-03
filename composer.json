@@ -1,5 +1,5 @@
 {
-    "name": "vsivsi/yii2-rbac-plus",
+    "name": "vsivsivsi/yii2-rbac-plus",
     "description":"Database role base access control manager for yii2",
     "type": "yii2-extension",
     "license": "Apache-2.0",
@@ -21,10 +21,10 @@
     },
     "autoload": {
         "psr-4": {
-            "vsivsi\\rbacplus\\": "src/"
+            "vsivsivsi\\rbacplus\\": "src/"
         }
     },
     "extra": {
-        "bootstrap": "vsivsi\\rbacplus\\Bootstrap"
+        "bootstrap": "vsivsivsi\\rbacplus\\Bootstrap"
     }
 }
