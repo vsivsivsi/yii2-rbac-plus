@@ -29,5 +29,20 @@
     },
     "extra": {
         "bootstrap": "johnitvn\\rbacplus\\Bootstrap"
-    }
+    },
+    "config": {
+        "process-timeout": 1800,
+        "fxp-asset": {
+
+            "enabled": false
+
+        }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+
+    ]
 }
