@@ -7,12 +7,12 @@
         {
             "name": "John Martin",
             "email": "john.itvn@gmail.com",
-            "homepage": "https://github.com/vsivsi?tab=repositories"
+            "homepage": "https://github.com/vsivsivsi?tab=repositories"
         }
     ],    
     "support": {
-        "issues": "https://github.com/vsivsi/yii2-rbac-plus/issues?state=open",
-        "source": "https://github.com/vsivsi/yii2-rbac-plus"
+        "issues": "https://github.com/vsivsivsi/yii2-rbac-plus/issues?state=open",
+        "source": "https://github.com/vsivsivsi/yii2-rbac-plus"
     },
     "minimum-stability": "stable",
     "require": {
